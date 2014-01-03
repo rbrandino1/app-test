@@ -1,0 +1,20 @@
+{
+    "rows": [{
+        "id": 15,
+        "calendar": "WEEKDAY",
+        "time": "05:50"
+    }, {
+        "id": 16,
+        "calendar": "WEEKDAY",
+        "time": "06:07"
+    }, {
+        "id": 17,
+        "calendar": "WEEKDAY",
+        "time": "06:42"
+    }, {
+        "id": 81,
+        "calendar": "SATURDAY",
+        "time": "08:00"
+    }],
+    "rowsAffected": 0
+}

@@ -1,0 +1,14 @@
+<div class="hero-unit">
+	<h1>Florianópolis's Public Transport Service</h1>
+	<nav class="navbar navbar-default navbar-collapse" role="navigation">
+	  <ul class="nav pull-left">
+	  	<li>
+	  		<a href="javascript:goBack();">Back</a>
+	  	</li>
+	  </ul>
+	</nav>
+	<small>Schedule - {{route.longName}}</small>
+	<ul class="list-group">
+		<li ng-repeat="departure in departures">{{departure.time}}</li>
+	</ul>
+</div>

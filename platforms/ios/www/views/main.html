@@ -1,0 +1,5 @@
+<div class="hero-unit"><h1>Florianópolis's Public Transport Service</h1><nav class="navbar navbar-default navbar-collapse" role="navigation"><form class="navbar-form navbar-left" role="search"><div class="form-group"><input type="search" ng-model="filter" class="form-control" placeholder="Search"></div><button id="submit" type="submit" class="btn btn-default" ng-click="search()">Search</button></form><ul class="nav pull-right"><li class="divider-vertical"></li><li><a href="javascript:void(0);">Close</a></li></ul></nav><div class="list-group" style="display: none"><a ng-repeat="route in routes" href="javascript:void(0);" ng-click="viewRouteDetails(route)" class="list-group-item">{{route.longName}}</a></div><div class="initial-text"><small>Click on search</small></div></div><script type="text/javascript">$('#submit').click(function(){
+		$('.initial-text').hide(800, function(){
+			$('.list-group').show();
+		});
+	});</script>

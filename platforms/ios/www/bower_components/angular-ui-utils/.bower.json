@@ -1,0 +1,18 @@
+{
+  "name": "angular-ui-event",
+  "main": "./event.js",
+  "dependencies": {
+    "angular": ">= 1.0.2"
+  },
+  "homepage": "https://github.com/angular-ui/ui-utils",
+  "_release": "2187fea402",
+  "_resolution": {
+    "type": "branch",
+    "branch": "bower-event",
+    "commit": "2187fea40203686f0e9efe3dc1b6a382ac59ce5d"
+  },
+  "_source": "git://github.com/angular-ui/ui-utils.git",
+  "_target": "bower-event",
+  "_originalSource": "angular-ui-utils",
+  "_direct": true
+}

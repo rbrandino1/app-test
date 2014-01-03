@@ -1,0 +1,60 @@
+'use strict';
+
+angular.module('testApp')
+.service('routeService', function ($http, $resource) {
+	var transformRequest = function(data, headersGetter){
+		var headers = headersGetter();
+
+		headers['Access-Control-Allow-Origin'] = '*';
+		headers['Authorization'] = 'Basic V0tENE43WU1BMXVpTThWOkR0ZFR0ek1MUWxBMGhrMkMxWWk1cEx5VklsQVE2OA==';
+		headers['Content-Type'] = 'application/json';
+		headers['X-AppGlu-Environment'] = 'staging';
+	};
+
+
+
+
+	this.findRoutesByStopName = function(stopName) {
+		delete $http.defaults.headers.common['X-Requested-With'];
+		var promise = $http({
+			method : 'POST',
+			url : 'https://dashboard.appglu.com/v1/queries/findRoutesByStopName/run',
+			data: {'stopName': stopName},
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Authorization': 'Basic V0tENE43WU1BMXVpTThWOkR0ZFR0ek1MUWxBMGhrMkMxWWk1cEx5VklsQVE2OA==',
+				'X-AppGlu-Environment': 'staging'
+			}
+		}).success(function(data) {
+				var routes;
+				angular.forEach(data, function(r) {
+					console.log(r);
+				});
+				routes = data;
+				return routes;
+			});
+		return promise;
+	};
+
+	this.findDeparturesByRouteId = function(routeId) {
+		var promise = $http({
+			method : 'POST',
+			url : 'https://dashboard.appglu.com/v1/queries/findDeparturesByRouteId/run',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': 'Basic V0tENE43WU1BMXVpTThWOkR0ZFR0ek1MUWxBMGhrMkMxWWk1cEx5VklsQVE2OA==',
+				'X-AppGlu-Environment': 'staging'
+			},
+			params: {'routeId':routeId}
+		}).success(function(data) {
+				var routes;
+				angular.forEach(data, function(r) {
+					console.log(r);
+				});
+				routes = data;
+				return routes;
+			});
+		return promise;
+	};
+});
