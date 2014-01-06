@@ -23,7 +23,22 @@ angular.module('testApp')
 	};
 
 	this.findDeparturesByRouteId = function(routeId) {
-		console.log(routeId);
-		return $http.get('data/departures.json');
+		var promise = $http({
+			method : 'POST',
+			url : 'https://dashboard.appglu.com/v1/queries/findDeparturesByRouteId/run',
+			data: {'routeId':routeId},
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Authorization': 'Basic V0tENE43WU1BMXVpTThWOkR0ZFR0ek1MUWxBMGhrMkMxWWk1cEx5VklsQVE2OA==',
+				'X-AppGlu-Environment': 'staging'
+			}
+		}).success(function(data) {
+			return data;
+		}).catch(function(){
+			console.error('Service Error');
+			return $http.get('data/departures.json');
+		});
+		return promise;
 	};
 });

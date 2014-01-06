@@ -7,6 +7,11 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
+/*var path = require('path');
+var mountFolder = function mountFolder(connect, point) {
+  return connect.static(path.resolve(point));
+};*/
+
 module.exports = function (grunt) {
 
   // Load grunt tasks automatically
@@ -71,19 +76,7 @@ module.exports = function (grunt) {
           base: [
             '.tmp',
             '<%= yeoman.app %>'
-          ],
-          middleware: function (connect) {
-            return [
-              lrSnippet,
-              mountFolder(connect, '.tmp'),
-              mountFolder(connect, yeomanConfig.app),
-              function(req, res, next) {
-                res.setHeader('Access-Control-Allow-Origin', '*');
-                res.setHeader('Access-Control-Allow-Methods', '*');
-                next();
-              }
-            ];
-          }
+          ]
         }
       },
       test: {
@@ -102,7 +95,6 @@ module.exports = function (grunt) {
         }
       }
     },
-
     // Make sure code styles are up to par and there are no obvious mistakes
     jshint: {
       options: {
@@ -385,7 +377,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'test',
     'build'
   ]);
 };
